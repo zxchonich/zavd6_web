@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ульяновська Юлія Вікторівна - Профіль</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --accent: #4f46e5;
+            /* Глибокий синій/індиго за ТЗ */
+            --accent-hover: #4338ca;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent);
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Навігація */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* Головна секція */
+        .hero-wrapper {
+            background-color: var(--bg-light);
+            padding: 80px 0;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+            line-height: 1.1;
+            color: var(--text-main);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .hero-bio {
+            font-size: 1rem;
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--accent);
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            width: fit-content;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main) !important;
+            border: 1px solid var(--border);
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bg-light);
+        }
+
+        .hero-contacts {
+            margin-top: auto;
+            padding-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .hero-contacts div {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hero-image {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .teacher-photo {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Загальні стилі секцій */
+        section.container {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            padding-left: 16px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .section-title.right-align {
+            text-align: right;
+            padding-left: 0;
+            padding-right: 16px;
+            border-left: none;
+            border-right: 4px solid var(--accent);
+        }
+
+        /* Про мене */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .about-col h3 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .about-image-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border);
+            margin: 30px 0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+        }
+
+        .about-col ul {
+            padding-left: 20px;
+        }
+
+        .about-col li {
+            margin-bottom: 12px;
+        }
+
+        /* Дисципліни */
+        .disciplines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 1.15rem;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .science-header {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .tag {
+            background: #e0e7ff;
+            color: var(--accent-hover);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .cert-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .cert-placeholder {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            height: 180px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+        }
+
+        footer {
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+            padding: 60px 0;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-form input,
+        .footer-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-wrapper {
+                padding: 40px 0;
+            }
+
+            .about-grid,
+            .science-header,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cert-gallery {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            section.container {
+                margin-top: 60px;
+                margin-bottom: 60px;
+            }
+        }
+
+        .umsf-logo {
+            height: 50px;
+            /* Висоту можна відрегулювати за потреби */
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <a href="https://umsf.dp.ua/" target="_blank" title="Університет митної справи та фінансів">
+                    <img src="logo.png" alt="Логотип УМСФ" class="umsf-logo">
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="#about">Про мене</a>
+                <a href="#disciplines">Дисципліни</a>
+                <a href="#science">Наука</a>
+                <a href="#certs">Сертифікати</a>
+                <a href="#footer">Контакти</a>
+            </nav>
+        </div>
+    </header>
+
+    <main itemscope itemtype="http://schema.org/Person">
+
+        <section class="hero-wrapper">
+            <div class="container hero">
+                <div class="hero-text">
+                    <h1 itemprop="name">Ульяновська Юлія Вікторівна</h1>
+                    <div class="hero-subtitle" itemprop="jobTitle">Завідувачка кафедри КН та ІПЗ, к.т.н., доцент</div>
+                    <div class="hero-bio" itemprop="description">
+                        Кандидат технічних наук (спеціальність 05.13.06 — автоматизовані системи управління). Понад 20
+                        років науково-педагогічного стажу. Керівництво кафедрою та підготовка інженерів-програмістів.
+                    </div>
+                    <a href="#disciplines" class="btn">Переглянути дисципліни</a>
+
+                    <div class="hero-contacts">
+                        <div>
+                            <a href="mailto:ulyanovska@umsf.dp.ua" itemprop="email">✉ ulyanovska@umsf.dp.ua</a>
+                            <a href="https://scholar.google.com.ua/citations?user=qcpalN0AAAAJ&hl=ru" target="_blank">🎓
+                                Google Scholar Profile</a>
+                        </div>
+                        <div style="color: var(--text-main);">
+                            <span>📍 м. Дніпро, вул. В. Вернадського, 2/4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="photo.jpg" alt="Фото Ульяновської Юлії Вікторівни" class="teacher-photo" itemprop="image">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <h2 class="section-title">Про мене та досвід</h2>
+            <div class="about-grid">
+                <div class="about-col">
+                    <h3>Освіта та науковий ступінь:</h3>
+                    <ul>
+                        <li><strong>1997:</strong> Дніпропетровський національний університет (математик, викладач
+                            математики).</li>
+                        <li><strong>2005:</strong> Присуджено ступінь к.т.н. (спеціальність 05.13.06).</li>
+                    </ul>
+                    <p style="padding-left: 20px;"><em>Тема дисертації:</em> «Моделі та методи обробки даних в єдиній
+                        автоматизованій інформаційній системі митної служби».</p>
+                </div>
+                <div class="about-col">
+                    <h3>Керівництво та організаційна діяльність:</h3>
+                    <ul>
+                        <li><strong>З 2018 р.:</strong> в.о. завідувача кафедри ІСТ УМСФ.</li>
+                        <li><strong>З 2019 р.:</strong> завідувачка кафедри комп'ютерних наук та інженерії ПЗ.</li>
+                        <li><strong>Кураторська робота:</strong> академічні магістерські групи К 21-1м, К 22-1м, К
+                            22-2м.</li>
+                        <li>Робота у складі журі міжнародних конкурсів та приймальної комісії.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="disciplines" class="container">
+            <h2 class="section-title right-align">Навчальні дисципліни та<br>методичне забезпечення</h2>
+            <div class="disciplines-grid">
+                <div class="card">
+                    <div class="card-tag">[121/122 Бакалаврат]</div>
+                    <div class="card-title">Комп'ютерна дискретна математика</div>
+                    <a href="https://drive.google.com/drive/folders/1I4vAl97FKi5quCh40tSQ130LZW00nFRu" target="_blank"
+                        class="btn btn-outline">📥 Силабус
+                        (PDF)</a>
+                </div>
+                <div class="card">
+                    <div class="card-tag">[121/122 Бакалаврат]</div>
+                    <div class="card-title">Теорія алгоритмів</div>
+                    <a href="https://drive.google.com/drive/folders/1I4vAl97FKi5quCh40tSQ130LZW00nFRu" target="_blank"
+                        class="btn btn-outline">📥 Силабус
+                        (PDF)</a>
+                </div>
+                <div class="card">
+                    <div class="card-tag">[121/122 Бакалаврат]</div>
+                    <div class="card-title">Сучасні методи теорії інформації та кодування</div>
+                    <a href="https://drive.google.com/drive/folders/1I4vAl97FKi5quCh40tSQ130LZW00nFRu" target="_blank"
+                        class="btn btn-outline">📥 Силабус
+                        (PDF)</a>
+                </div>
+                <div class="card">
+                    <div class="card-tag">[121/122 Магістратура]</div>
+                    <div class="card-title">Теорія прийняття рішень</div>
+                    <a href="https://drive.google.com/drive/folders/1iMCJVcZKnK2yIupioR-BFSN8LaBsFuQT" target="_blank"
+                        class="btn btn-outline">📥 Силабус
+                        (PDF)</a>
+                </div>
+                <div class="card">
+                    <div class="card-tag">[121/122 Магістратура]</div>
+                    <div class="card-title">Інтелектуальні системи підтримки прийняття рішень</div>
+                    <a href="https://drive.google.com/drive/folders/1iMCJVcZKnK2yIupioR-BFSN8LaBsFuQT" target="_blank"
+                        class="btn btn-outline">📥 Силабус
+                        (PDF)</a>
+                </div>
+                <div class="card">
+                    <div class="card-tag">[121/122 Магістратура]</div>
+                    <div class="card-title">Методи та системи штучного інтелекту</div>
+                    <a href="https://drive.google.com/drive/folders/1iMCJVcZKnK2yIupioR-BFSN8LaBsFuQT" target="_blank"
+                        class="btn btn-outline">📥 Силабус
+                        (PDF)</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="science" class="container">
+            <h2 class="section-title">Наукова діяльність та<br>сертифікати</h2>
+            <div class="science-header">
+                <div>
+                    <h3>Наукові інтереси та дисертація</h3>
+                    <p style="color: var(--text-muted);">Сфера наукових інтересів:</p>
+                    <div class="tags">
+                        <span class="tag">[ Інтелектуальні АСУ ]</span>
+                        <span class="tag">[ Нечіткі та неповні дані ]</span>
+                        <span class="tag">[ Системи підтримки прийняття рішень ]</span>
+                    </div>
+                    <br>
+                    <a href="https://scholar.google.com.ua/citations?user=qcpalN0AAAAJ&hl=ru" target="_blank"
+                        style="font-weight:600;">→ Профіль у Google Scholar</a>
+                </div>
+                <div>
+                    <p><strong>Дисертаційне дослідження (2005 р.):</strong></p>
+                    <p style="color: var(--text-muted); margin-bottom: 4px;">«Моделі та методи обробки даних в єдиній
+                        автоматизованій інформаційній системі митної служби»</p>
+                    <p style="font-size: 0.9rem;">(Спеціальність 05.13.06 — АСУ)</p>
+                </div>
+            </div>
+
+            <h3 id="certs"
+                style="margin-top: 20px; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px;">
+                Підвищення кваліфікації та сертифікати</h3>
+            <a href="https://drive.google.com/drive/folders/1P_HT9tmB8ErpB3ldon43uzotQXOplcn0" target="_blank"
+                class="btn btn-outline">📄 Переглянути всі сертифікати</a>
+        </section>
+
+    </main>
+
+    <footer id="footer">
+        <div class="container footer-grid">
+            <div>
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Логотип УМСФ" class="umsf-logo">
+                </div>
+                <p style="color: var(--text-muted);">Кафедра КН та ІПЗ<br>УМСФ</p>
+            </div>
+            <div>
+                <h4 style="margin-top:0;">Мої контакти</h4>
+                <p style="line-height: 1.8; color: var(--text-muted);">
+                    <a href="mailto:ulyanovska@umsf.dp.ua" style="color:inherit;">ulyanovska@umsf.dp.ua</a><br>
+                    <a href="mailto:yuliyauyv@gmail.com" style="color:inherit;">yuliyauyv@gmail.com</a><br>
+                    вул. В. Вернадського, 2/4<br>
+                    м. Дніпро
+                </p>
+                <p>
+                    <a href="mailto:ulyanovska@umsf.dp.ua" style="font-weight:600; margin-right:20px;">→ Пошта</a>
+                    <a href="https://scholar.google.com.ua/citations?user=qcpalN0AAAAJ&hl=ru" target="_blank"
+                        style="font-weight:600;">→ Scholar</a>
+                </p>
+            </div>
+            <div class="footer-form">
+                <h4 style="margin-top:0; text-align:right;">Зворотний зв'язок</h4>
+                <form onsubmit="event.preventDefault();">
+                    <input type="text" placeholder="Ваше ім'я" required>
+                    <input type="email" placeholder="Електронна пошта" required>
+                    <textarea rows="3" placeholder="Текст повідомлення" required></textarea>
+                    <button type="submit" class="btn" style="width:100%; text-align:center;">Надіслати</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var BTN_ID = 'dom-nav-start';
+            var PANEL_ID = 'dom-nav-panel';
+            var LAYER_ID = 'dom-nav-layer';
+            var STYLE_ID = 'dom-nav-style';
+            var SERVICE_IDS = [BTN_ID, PANEL_ID, LAYER_ID, STYLE_ID];
+
+            var startBtn, panel, layer;
+            var current = null;   // вузол, який зараз підсвічено
+            var raf = 0;
+
+            /* ---------- Стилі панелі та підсвічування ---------- */
+            function addStyles() {
+                var st = document.createElement('style');
+                st.id = STYLE_ID;
+                st.textContent =
+                    '#' + BTN_ID + '{position:fixed;right:20px;bottom:20px;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,.15);font-family:inherit;font-size:1rem;}' +
+                    '#' + PANEL_ID + '{position:fixed;right:20px;bottom:20px;z-index:300;width:340px;max-width:calc(100vw - 40px);max-height:60vh;overflow:auto;box-sizing:border-box;' +
+                    'background:#fff;border:1px solid var(--border);border-top:4px solid var(--accent);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.22);padding:14px 16px;font-size:.92rem;line-height:1.45;}' +
+                    '#' + PANEL_ID + ' .dn-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-weight:700;}' +
+                    '#' + PANEL_ID + ' .dn-close{border:none;background:none;font-size:1.3rem;line-height:1;cursor:pointer;color:var(--text-muted);padding:0 4px;}' +
+                    '#' + PANEL_ID + ' .dn-info{white-space:pre-line;word-break:break-word;margin-bottom:10px;}' +
+                    '#' + PANEL_ID + ' .dn-note{font-size:.82rem;color:var(--text-muted);margin-bottom:10px;}' +
+                    '#' + PANEL_ID + ' .dn-question{font-weight:600;margin-bottom:10px;}' +
+                    '#' + PANEL_ID + ' .dn-actions{display:flex;gap:8px;}' +
+                    '#' + PANEL_ID + ' .dn-actions .btn{flex:1;width:auto;text-align:center;padding:10px 8px;font-family:inherit;font-size:.9rem;}' +
+                    '#' + LAYER_ID + '{position:fixed;left:0;top:0;width:0;height:0;z-index:150;pointer-events:none;}' +
+                    '#' + LAYER_ID + ' .dn-box{position:fixed;box-sizing:border-box;pointer-events:none;border-radius:3px;}' +
+                    '#' + LAYER_ID + ' .dn-el{background:rgba(250,204,21,.28);outline:3px solid #f59e0b;outline-offset:1px;}' +
+                    '#' + LAYER_ID + ' .dn-tx{background:rgba(250,204,21,.6);outline:2px solid #f59e0b;}' +
+                    '#' + LAYER_ID + ' .dn-page{outline:4px dashed #f59e0b;outline-offset:-4px;}';
+                document.head.appendChild(st);
+            }
+
+            function isService(node) {
+                return node.nodeType === Node.ELEMENT_NODE &&
+                    (node.tagName === 'SCRIPT' || SERVICE_IDS.indexOf(node.id) !== -1);
+            }
+
+            /* ---------- Збір вузлів дерева ---------- */
+            function collect(node, list) {
+                if (node.nodeType === Node.TEXT_NODE && !node.nodeValue.trim()) return;
+                if (node.nodeType === Node.COMMENT_NODE) return;
+                if (isService(node)) return;
+                list.push(node);
+                for (var i = 0; i < node.childNodes.length; i++) collect(node.childNodes[i], list);
+            }
+
+            function shorten(str, max) {
+                str = str.replace(/\s+/g, ' ').trim();
+                return str.length > max ? str.slice(0, max) + '…' : str;
+            }
+
+            function describe(node) {
+                if (node.nodeType === Node.DOCUMENT_NODE) {
+                    return 'Тип: Document (#document)';
+                }
+                if (node.nodeType === Node.DOCUMENT_TYPE_NODE) {
+                    return 'Тип: DocumentType\nВміст: <!DOCTYPE ' + node.name + '>';
+                }
+                if (node.nodeType === Node.TEXT_NODE) {
+                    return 'Тип: Text\nВміст: «' + shorten(node.nodeValue, 80) + '»';
+                }
+                var s = 'Тип: Element\nТег: <' + node.tagName.toLowerCase() + '>';
+                if (node.id) s += '\nid: ' + node.id;
+                if (typeof node.className === 'string' && node.className) s += '\nclass: ' + node.className;
+                s += '\nДочірніх вузлів: ' + node.childNodes.length;
+                return s;
+            }
+
+            /* ---------- Підсвічування вузла на сторінці ---------- */
+            function isPageLevel(node) {
+                return node.nodeType === Node.DOCUMENT_NODE || node.nodeType === Node.DOCUMENT_TYPE_NODE ||
+                    (node.nodeType === Node.ELEMENT_NODE && (node.tagName === 'HTML' || node.tagName === 'BODY'));
+            }
+
+            function getRects(node) {
+                var list = [];
+                if (node.nodeType === Node.TEXT_NODE) {
+                    var range = document.createRange();
+                    range.selectNodeContents(node);
+                    list = Array.prototype.slice.call(range.getClientRects());
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    list = [node.getBoundingClientRect()];
+                }
+                return list.filter(function (r) { return r.width > 0 && r.height > 0; });
+            }
+
+            function addBox(cls, left, top, width, height) {
+                var d = document.createElement('div');
+                d.className = 'dn-box ' + cls;
+                d.style.left = left + 'px';
+                d.style.top = top + 'px';
+                d.style.width = width + 'px';
+                d.style.height = height + 'px';
+                layer.appendChild(d);
+            }
+
+            // повертає true, якщо вузол має видиме відображення
+            function drawHighlight() {
+                while (layer.firstChild) layer.removeChild(layer.firstChild);
+                if (!current) return false;
+                if (isPageLevel(current)) {
+                    addBox('dn-page', 0, 0, window.innerWidth, window.innerHeight);
+                    return true;
+                }
+                var rects = getRects(current);
+                var cls = current.nodeType === Node.TEXT_NODE ? 'dn-tx' : 'dn-el';
+                rects.forEach(function (r) { addBox(cls, r.left, r.top, r.width, r.height); });
+                return rects.length > 0;
+            }
+
+            function scheduleRedraw() {
+                if (raf) return;
+                raf = window.requestAnimationFrame(function () { raf = 0; drawHighlight(); });
+            }
+
+            // прокрутка сторінки до вузла, якщо його не видно
+            function scrollToNode(node) {
+                if (isPageLevel(node)) return;
+                var rects = getRects(node);
+                if (!rects.length) return;
+                var top = Math.min.apply(null, rects.map(function (r) { return r.top; }));
+                var bottom = Math.max.apply(null, rects.map(function (r) { return r.bottom; }));
+                var h = bottom - top;
+                if (top >= 90 && bottom <= window.innerHeight - 20) return;   // 90px – залишок під липкий header
+                var target = node.nodeType === Node.TEXT_NODE ? node.parentElement : node;
+                if (!target) return;
+                target.scrollIntoView({ behavior: 'smooth', block: h < window.innerHeight * 0.7 ? 'center' : 'start' });
+            }
+
+            /* ---------- Панель ---------- */
+            function buildPanel() {
+                panel = document.createElement('div');
+                panel.id = PANEL_ID;
+                panel.setAttribute('role', 'dialog');
+                panel.setAttribute('aria-live', 'polite');
+                document.body.appendChild(panel);
+                layer = document.createElement('div');
+                layer.id = LAYER_ID;
+                document.body.appendChild(layer);
+            }
+
+            function el(tag, cls, text) {
+                var e = document.createElement(tag);
+                if (cls) e.className = cls;
+                if (text !== undefined) e.textContent = text;
+                return e;
+            }
+
+            // Функція зворотного виклику №1: показує питання у панелі;
+            // натискання кнопки викликає onYes або onNo
+            function ask(title, info, note, question, yesLabel, noLabel, onYes, onNo) {
+                while (panel.firstChild) panel.removeChild(panel.firstChild);
+
+                var head = el('div', 'dn-head');
+                head.appendChild(el('span', '', title));
+                var close = el('button', 'dn-close', '×');
+                close.type = 'button';
+                close.title = 'Завершити обхід';
+                close.addEventListener('click', finish);
+                head.appendChild(close);
+
+                var actions = el('div', 'dn-actions');
+                var yes = el('button', 'btn', yesLabel);
+                yes.type = 'button';
+                yes.addEventListener('click', onYes);
+                var no = el('button', 'btn btn-outline', noLabel);
+                no.type = 'button';
+                no.addEventListener('click', onNo);
+                actions.appendChild(yes);
+                actions.appendChild(no);
+
+                panel.appendChild(head);
+                panel.appendChild(el('div', 'dn-info', info));
+                panel.appendChild(el('div', 'dn-note', note));
+                panel.appendChild(el('div', 'dn-question', question));
+                panel.appendChild(actions);
+            }
+
+            // Функція зворотного виклику №2: завершення роботи
+            function finish() {
+                current = null;
+                if (panel) { panel.remove(); panel = null; }
+                if (layer) { layer.remove(); layer = null; }
+                window.removeEventListener('scroll', scheduleRedraw, true);
+                window.removeEventListener('resize', scheduleRedraw);
+                startBtn.style.display = '';
+            }
+
+            // Відвідування вузла i; наступний крок визначається callback-функціями
+            function visit(nodes, i) {
+                current = nodes[i];
+                var visible = drawHighlight();
+                scrollToNode(current);
+
+                var title = 'Вузол ' + (i + 1) + ' з ' + nodes.length;
+                var info = describe(current);
+                var note = isPageLevel(current)
+                    ? 'Вузол охоплює всю сторінку – підсвічено пунктирною рамкою по краях вікна.'
+                    : visible
+                        ? 'Вузол підсвічено на сторінці жовтим кольором.'
+                        : 'Цей вузол не відображається на сторінці (наприклад, він у <head>).';
+
+                // фабрика callback-функцій: перехід до вузла j
+                function goTo(j) { return function () { visit(nodes, j); }; }
+
+                if (i === 0) {
+                    ask(title, info, note, 'Перейти до наступного вузла?',
+                        'Далі', 'Завершити', goTo(1), finish);
+                } else if (i === nodes.length - 1) {
+                    ask(title, info, note, 'Це нижній вузол. Що далі?',
+                        'Назад', 'Вийти', goTo(i - 1), finish);
+                } else {
+                    ask(title, info, note, 'Пройти далі чи повернутися?',
+                        'Далі', 'Назад', goTo(i + 1), goTo(i - 1));
+                }
+            }
+
+            function start() {
+                if (panel) return;
+                var nodes = [];
+                collect(document, nodes);
+                buildPanel();
+                startBtn.style.display = 'none';
+                window.addEventListener('scroll', scheduleRedraw, true);
+                window.addEventListener('resize', scheduleRedraw);
+                visit(nodes, 0);
+            }
+
+            function init() {
+                addStyles();
+                startBtn = document.createElement('button');
+                startBtn.id = BTN_ID;
+                startBtn.type = 'button';
+                startBtn.className = 'btn';
+                startBtn.textContent = 'Обхід DOM-дерева';
+                startBtn.addEventListener('click', start);
+                document.body.appendChild(startBtn);
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
+    </script>
+
+</body>
+
+</html>
